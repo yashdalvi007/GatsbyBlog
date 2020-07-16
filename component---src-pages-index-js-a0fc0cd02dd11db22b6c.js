@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{RXBc:function(e,a,n){"use strict";n.r(a);var l=n("q1tI"),t=n.n(l),c=n("Wbzz"),o=n("Bl7J"),r=n("hIod");a.default=function(){return t.a.createElement(o.a,null,t.a.createElement(r.a,null),t.a.createElement("h1",null,"Hello"),t.a.createElement("h2",null,"I'm Yash, a full-stack developer living in India."),t.a.createElement("p",null,"Need a developer?? ",t.a.createElement(c.a,{to:"/contact"},"Contact Me")))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-a0fc0cd02dd11db22b6c.js.map
