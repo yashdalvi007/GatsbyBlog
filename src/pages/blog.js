@@ -1,25 +1,28 @@
 import React from 'react';
 import Layout from '../components/layout';
 import {graphql, useStaticQuery, Link} from 'gatsby';
+import blogStyles from './blog.module.scss';
+import Head from '../components/head';
 
 const BlogPage = () => {
 
     const data= useStaticQuery(
         graphql`
         query{
-            allMarkdownRemark{
-              edges{
-                node{
-                  frontmatter{
-                    title
-                    date
+                allContentfulBlogPost(
+                  sort: {
+                    fields: publishedDate,
+                    order: DESC
                   }
-                  fields{
+                ){
+                  edges{
+                    node{
+                      title
                       slug
+                      publishedDate(formatString: "MMMM Do, YYYY")
+                    }
                   }
                 }
-              }
-            }
           }
         `
     )
@@ -27,14 +30,16 @@ const BlogPage = () => {
     return(
         <div>
             <Layout>
+              <Head />
             <h1>Blog</h1>
-                <ol>
-                    {
-                        data.allMarkdownRemark.edges.map(edge=>{
+                <ol className={blogStyles.posts}>
+                {
+                        data.allContentfulBlogPost.edges.map(edge=>{
                             return(
-                                <li>
-                                    <Link to={`/blog/${edge.node.fields.slug}`}><h2>{edge.node.frontmatter.title}</h2></Link>
-                                    <p>{edge.node.frontmatter.date}</p>
+                                <li className={blogStyles.post}>
+                                    <Link to={`/blog/${edge.node.slug}`}><h2>{edge.node.title}</h2>
+                                    <p>{edge.node.publishedDate}</p>
+                                    </Link>
                                 </li>
                             )
                         })

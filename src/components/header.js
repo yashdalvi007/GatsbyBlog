@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, graphql, useStaticQuery} from 'gatsby'; 
+import {Link} from 'gatsby'; 
 
 //import './headers.module.scss';
 import headerStyles from './headers.module.scss'
